@@ -1,0 +1,40 @@
+﻿@model List<Reservation>
+@{
+    ViewData["Title"] = "MyApprovalReservation2";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h1>Onay Bekleyen Rezarvasyonlar</h1>
+<br />
+@if (!Model.Any())
+{
+    <span>Onay Bekleyen Rezarvasyon Bulunmamaktadır.</span>
+}
+else
+{
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Lokasyon</th>
+        <th>Kişi Sayısı</th>
+        <th>Rezarvasyon Tarihi</th>
+        <th>Rezarvasyon Durum</th>
+        <th>Onay Durumu</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+       <tr>
+        <th>@item.AppUserId</th>
+        <td>@item.Destination.City</td>
+        <td>@item.PersonCount</td>
+        <td>@item.ReservationDate</td>
+        <td>@item.Status</td>
+        <td><a href="/Admin/AdminReservationAccept/ReservationAccept/@item.ReservationId" class="btn btn-outline-success">Onayla</a></td>
+       </tr>
+
+    }
+</table>
+
+}
+

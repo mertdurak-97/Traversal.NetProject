@@ -1,0 +1,31 @@
+﻿@model List<AppRole>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayac = 0;
+}
+
+<h1>Index</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Görev</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        sayac++;
+        <tr>
+        <th>@sayac</th>
+        <td>@item.Name</td>
+        <td><a href="/Admin/AdminRoleChange/DeleteRoles/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+        <td><a href="/Admin/AdminRoleChange/UpdateRoles/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+      </tr>
+    }
+</tables>
+ <a href="/Admin/AdminRoleChange/AddRole/" class="btn btn-outline-primary">Yeni Rol Ekle</a>
+ <br />
+ <a href="/Admin/AdminRoleChange/UserRolesList/" class="btn btn-outline-primary">Kullanıcı Rol Listesi</a>

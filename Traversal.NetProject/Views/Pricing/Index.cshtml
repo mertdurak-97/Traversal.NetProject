@@ -1,0 +1,80 @@
+﻿@model List<Destination>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_TraversalLayout.cshtml";
+}
+
+<!doctype html>
+<html lang="zxx">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Traversal Travel Category Bootstrap Responsive Template | Packages </title>
+  <!-- google fonts -->
+  <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <!-- google fonts -->
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="~/Traversal-Liberty/assets/css/style-liberty.css">
+  <!-- Template CSS -->
+</head>
+
+<body>
+
+  <!-- about breadcrumb -->
+  <section class="w3l-about-breadcrumb text-left">
+	<div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+	  <div class="container">
+		<h2 class="title">Rezarvasyon</h2>
+		<ul class="breadcrumbs-custom-path mt-2">
+		  <li><a href="/Default/Index/">Ana Sayfa</a></li>
+		  <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span>Seçiminiz</li>
+		</ul>
+	  </div>
+	</div>
+  </section>
+  <!-- //about breadcrumb -->
+  <!--/pricing-->
+  <section class="w3l-pricinghny">
+	<div class="pricing-inner-info py-5">
+	  <div class="container py-lg-4">
+		<!--/pricing-info-grids-->
+		<div class="pricing-info-grids">
+		  <!--/box-->
+					@foreach (var item in Model)
+					{
+						<div class="price-box">
+							<div class="grid grid-column-2">
+							  <div class="column pr-img-gd">
+								<h6 class="pricehead"><span class="fa fa-delicious mr-2" aria-hidden="true"></span>@item.City
+								</h6>
+							  </div>
+							  <div class="column text-lg-center">
+								<p class="price-title">@item.DayNight</p>
+							  </div>
+							  <div class="column price-number text-md-right">
+								<h3 class="pricing"> <sup class="pri1">$</sup>@item.Price<sup class="pri">99</sup>
+								</h3>
+								<a href="/Member/Reservation/NewReservation/@item.DestinationID" class="btn btn-style btn-primary ml-lg-3">Rezarvasyon</a>
+							  </div>
+							</div>
+						</div>
+					}
+
+		  <!--/box-->
+
+	<!--/box-->
+		</div>
+		<!--/pricing-info-grids-->
+	  </div>
+	</div>
+  </section>
+  <!--//pricing-->
+
+</body>
+
+</html>

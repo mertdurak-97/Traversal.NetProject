@@ -1,0 +1,32 @@
+﻿@model Guide
+@{
+    ViewData["Title"] = "EditGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h1>Rehber Güüncelleme</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="GuideID" />
+    <div class="form-group">
+        @Html.Label("Ad Soyad")
+        <input type="text" asp-for="Name" class="form-control"/>
+      
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Resim")
+        <input type="text" asp-for="Image" class="form-control"/>
+  
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Açıklama")
+        <input type="text" asp-for="Description" class="form-control"/>
+
+    </div> 
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>

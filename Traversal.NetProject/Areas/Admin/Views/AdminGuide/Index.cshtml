@@ -1,0 +1,34 @@
+﻿@model List<Guide>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayac = 0;
+}
+
+<h1>Rehberlerimiz</h1>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Görsel</th>
+        <th>Ad & Soyad</th>
+        <th>Açıklama</th>
+        <th>Düzenle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+      <tr>
+            @{sayac += 1;}
+        <th>@sayac</th> 
+        <td><img src="@item.Image" height="50" width="50"/></td>
+        <td>@item.Name<td>
+        <td>@item.Description<td>
+        <td><a href="/Admin/AdminGuide/EditGuide/@item.GuideID" class="btn btn-outline-warning">Düzenle</a><td>
+        <td><a href="/Admin/AdminGuide/DeleteGuide/@item.GuideID" class="btn btn-outline-danger">Sil</a><td>
+      </tr>
+    }
+</table>
+<a href="/Admin/AdminGuide/AddGuide/" class="btn btn-outline-primary">Yeni Rehber Ekle</a>

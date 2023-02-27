@@ -1,0 +1,26 @@
+﻿@model List<Comment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>Yorum Listesi</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Kullanıcı</th>
+        <th>Rota</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+      <tr>
+        <th>@item.CommentId</th>
+        <td>@item.AppUser.Name</td>
+        <td>@item.Destination.City</td>
+        <td>@(((DateTime)item.CommentDate).ToString("dd-MMM-yyyy"))</td>
+        <td><a href="/Admin/AdminComment/DeleteComment/@item.CommentId" class="btn btn-outline-danger">Sil</a></td>
+      </tr>
+    }
+</tables

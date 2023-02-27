@@ -1,0 +1,32 @@
+﻿@model Guide
+@{
+    ViewData["Title"] = "AddGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h1>Yeni Rehber Oluşturma Sayfası</h1>
+
+<form method="post">
+      <input type="hidden" asp-for="GuideID" />
+    <div class="form-group">
+        @Html.Label("Ad Soyad")
+        <input type="text" asp-for="Name" class="form-control"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Resim")
+        <input type="text" asp-for="Image" class="form-control"/>
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Açıklama")
+        <input type="text" asp-for="Description" class="form-control"/>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div> 
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>
